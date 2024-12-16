@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Course</title>
+  </head>
+  <body>
+  <h1><%= it.course.course %></h1>
+  <form method="POST" action="/courses/<%= it.course.courseId %>/delete">
+    <input type="submit" value="Delete" />
+  </form>
+
+  <% if (it.feedbackHistory){%>
+<h2>You have already given feedback for this course. Thank you!</h2>
+  <% } else {%>
+  <h2> How would you rate this experience?</h2>
+    <form method="POST" action="/courses/<%= it.course.courseId %>/feedbacks/1">
+      <button type="submit"> Poor </button>
+    </form>
+    <form method="POST" action="/courses/<%= it.course.courseId %>/feedbacks/2">
+      <button type="submit"> Fair </button>
+    </form>
+    <form method="POST" action="/courses/<%= it.course.courseId %>/feedbacks/3">
+      <button type="submit"> Good </button>
+    </form>
+    <form method="POST" action="/courses/<%= it.course.courseId %>/feedbacks/4">
+      <button type="submit"> Very good </button>
+    </form>
+    <form method="POST" action="/courses/<%= it.course.courseId %>/feedbacks/5">
+      <button type="submit"> Excellent </button>
+    </form>
+    <% }%>
+    <hr>
+    <p><a href="/courses">Back to courses</a></p>
+  </body>
+</html>
